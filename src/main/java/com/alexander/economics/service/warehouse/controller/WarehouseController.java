@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -36,7 +37,7 @@ import static org.springframework.http.ResponseEntity.ok;
  * Service, that provides an information about warehouses
  */
 @RestController
-@RequestMapping(value = "/warehouses", consumes = {APPLICATION_JSON_VALUE}, produces = {APPLICATION_JSON_VALUE})
+@RequestMapping(value = "/warehouses", produces = {APPLICATION_JSON_VALUE})
 @Slf4j
 @AllArgsConstructor
 class WarehouseController {
@@ -51,6 +52,7 @@ class WarehouseController {
      * @return all warehouses
      */
     @GetMapping
+    @CrossOrigin
     ResponseEntity<Collection<WarehouseDTO>> getWarehouses() {
         Collection<Warehouse> warehouses = service.getWarehouses();
         return ok(warehouses.stream().map(converter::convert).collect(toUnmodifiableSet()));
@@ -68,7 +70,7 @@ class WarehouseController {
     /**
      * Adds new warehouse
      */
-    @PostMapping
+    @PostMapping(consumes = {APPLICATION_JSON_VALUE})
     ResponseEntity<String> createWarehouse(@RequestBody WarehouseDTO w)
         throws URISyntaxException {
         if (w == null || w.getName() == null || w.getName().isBlank()) {
@@ -81,7 +83,7 @@ class WarehouseController {
     /**
      * Updates warehouse
      */
-    @PutMapping("/{warehouseId}")
+    @PutMapping(value = "/{warehouseId}", consumes = {APPLICATION_JSON_VALUE})
     ResponseEntity<String> updateWarehouse(@PathVariable("warehouseId") String id,
                                            @RequestBody WarehouseDTO w)
         throws URISyntaxException {

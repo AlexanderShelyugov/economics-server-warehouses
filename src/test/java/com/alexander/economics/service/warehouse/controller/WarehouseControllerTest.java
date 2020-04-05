@@ -88,7 +88,6 @@ class WarehouseControllerTest {
         when(service.getWarehouses()).thenReturn(warehouses);
         final MvcResult result = mockMvc.perform(
             get(URI)
-                .contentType(APPLICATION_JSON)
                 .accept(APPLICATION_JSON)
         )
             .andDo(print())
@@ -118,7 +117,6 @@ class WarehouseControllerTest {
         when(service.getByUuid(w.getUuid())).thenReturn(w);
         final MvcResult result = mockMvc.perform(
             get(URI + "/" + w.getUuid())
-                .contentType(APPLICATION_JSON)
                 .accept(APPLICATION_JSON)
         )
             .andDo(print())
@@ -221,7 +219,6 @@ class WarehouseControllerTest {
         when(service.getByUuid(eq(uuid))).thenReturn(w);
         mockMvc.perform(
             delete(URI + "/" + uuid)
-                .contentType(APPLICATION_JSON)
                 .accept(APPLICATION_JSON)
         )
             .andDo(print())
