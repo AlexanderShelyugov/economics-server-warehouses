@@ -1,1 +1,1 @@
-sudo docker run -it -p 8080:8080 economics-server-warehouses
+sudo docker run -it -p 8001:8001 economics-server-warehouses
