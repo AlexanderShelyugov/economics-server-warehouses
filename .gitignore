@@ -7,4 +7,4 @@ gradle
 *.war
 *.ear
 !gradle-wrapper.jar
-
+lombok.config
