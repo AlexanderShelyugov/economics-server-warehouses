@@ -1,2 +1,3 @@
 ./gradlew clean bootJar
-sudo docker build --tag=economics-server-warehouses .
+eval $(minikube docker-env)
+docker build --tag=economics-server-warehouses .

@@ -1,6 +1,4 @@
 spring:
-  application:
-    name: economics-warehouse-server
   datasource:
     url: jdbc:h2:mem:warehousedb
     driverClassName: org.h2.Driver
@@ -11,10 +9,10 @@ spring:
     hibernate:
       ddl-auto: none
 server:
-  port: 8001
+  port: ${PORT:8001}
 eureka:
   client:
-    defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+    defaultZone: ${EUREKA_URI:http://localhost:8761}/eureka
   healthcheck:
     enabled: true
   instance:
