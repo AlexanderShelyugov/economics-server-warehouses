@@ -1,3 +1,6 @@
+--liquibase formatted sql
+
+--changeset Alexander:1.0 (dbms:h2)
 CREATE TABLE WAREHOUSES (
     ID INTEGER PRIMARY KEY AUTO_INCREMENT,
     UUID BINARY(16) DEFAULT UUID() UNIQUE NOT NULL,
