@@ -61,4 +61,10 @@ public class Warehouse implements Serializable {
      */
     @Column(name = "LONGITUDE")
     private Double longitude;
+
+    /**
+     * Capacity
+     */
+    @Column(name = "CAPACITY")
+    private Integer capacity;
 }

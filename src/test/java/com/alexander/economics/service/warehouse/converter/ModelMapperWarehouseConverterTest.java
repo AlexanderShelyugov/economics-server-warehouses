@@ -31,7 +31,7 @@ class ModelMapperWarehouseConverterTest {
     void convert() {
         final Warehouse warehouse = randomWarehouse();
         final WarehouseDTO expectedDTO = new WarehouseDTO(warehouse.getUuid().toString(), warehouse.getName(),
-            warehouse.getLatitude(), warehouse.getLongitude());
+            warehouse.getLatitude(), warehouse.getLongitude(), warehouse.getCapacity());
         assertThat(converter.convert(warehouse), is(equalTo(expectedDTO)));
     }
 }

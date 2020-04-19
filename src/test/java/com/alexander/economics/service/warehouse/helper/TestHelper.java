@@ -13,6 +13,7 @@ public class TestHelper {
     public static final Random RANDOM = new Random();
     private static final int LATITUDE = 90;
     private static final int LONGITUDE = 180;
+    private static final int MAX_CAPACITY = 200;
 
     private static final int NUMBER_OF_WAREHOUSES = 25;
 
@@ -21,7 +22,8 @@ public class TestHelper {
             randomUUID(),
             randomUUID().toString(),
             RANDOM.nextDouble() * LATITUDE * 2 - LATITUDE,
-            RANDOM.nextDouble() * LONGITUDE * 2 - LONGITUDE);
+            RANDOM.nextDouble() * LONGITUDE * 2 - LONGITUDE,
+            RANDOM.nextInt(MAX_CAPACITY));
     }
 
     public static Collection<Warehouse> randomWarehouses() {

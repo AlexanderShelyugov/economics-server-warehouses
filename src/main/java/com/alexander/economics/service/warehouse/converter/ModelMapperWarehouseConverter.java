@@ -19,7 +19,7 @@ class ModelMapperWarehouseConverter implements WarehouseConverter {
         Provider<WarehouseDTO> provider = request -> {
             Warehouse warehouse = (Warehouse) request.getSource();
             return new WarehouseDTO(warehouse.getUuid().toString(), warehouse.getName(),
-                warehouse.getLatitude(), warehouse.getLongitude());
+                warehouse.getLatitude(), warehouse.getLongitude(), warehouse.getCapacity());
         };
         TypeMap<Warehouse, WarehouseDTO> entityToDTOMap = mapper.createTypeMap(Warehouse.class, WarehouseDTO.class);
         entityToDTOMap.setProvider(provider);

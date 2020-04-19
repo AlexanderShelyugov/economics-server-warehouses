@@ -76,7 +76,8 @@ class WarehouseController {
         if (w == null || w.getName() == null || w.getName().isBlank()) {
             return badRequest().body("Not enough parameters");
         }
-        final Warehouse warehouse = service.createWarehouse(w.getName(), w.getLatitude(), w.getLongitude());
+        final Warehouse warehouse = service.createWarehouse(w.getName(), w.getLatitude(), w.getLongitude(),
+            w.getCapacity());
         return created(new URI(valueOf(warehouse.getUuid()))).body("Ok");
     }
 
@@ -91,11 +92,12 @@ class WarehouseController {
         final UUID savedId;
         if (warehouse == null) {
             final Warehouse savedWarehouse = service.createWarehouse(
-                w.getName(), w.getLatitude(), w.getLongitude());
+                w.getName(), w.getLatitude(), w.getLongitude(), w.getCapacity());
             savedId = savedWarehouse.getUuid();
         } else {
             service.saveWarehouse(new Warehouse(
-                warehouse.getId(), warehouse.getUuid(), w.getName(), w.getLatitude(), w.getLongitude()
+                warehouse.getId(), warehouse.getUuid(), w.getName(), w.getLatitude(), w.getLongitude(),
+                w.getCapacity()
             ));
             savedId = warehouse.getUuid();
         }

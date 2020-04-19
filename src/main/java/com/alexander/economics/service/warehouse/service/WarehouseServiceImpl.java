@@ -42,8 +42,11 @@ class WarehouseServiceImpl implements WarehouseService {
     }
 
     @Override
-    public Warehouse createWarehouse(@NonNull String name, @NonNull Double latitude, @NonNull Double longitude) {
-        final Warehouse w = new Warehouse(null, randomUUID(), name, latitude, longitude);
+    public Warehouse createWarehouse(@NonNull String name,
+                                     @NonNull Double latitude,
+                                     @NonNull Double longitude,
+                                     @NonNull Integer capacity) {
+        final Warehouse w = new Warehouse(null, randomUUID(), name, latitude, longitude, capacity);
         return r.save(w);
     }
 

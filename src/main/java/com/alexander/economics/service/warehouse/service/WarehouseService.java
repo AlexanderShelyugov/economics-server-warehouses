@@ -38,9 +38,10 @@ public interface WarehouseService {
      * @param name      name
      * @param latitude  latitude
      * @param longitude longitude
+     * @param capacity  capacity
      * @return new warehouse
      */
-    Warehouse createWarehouse(String name, Double latitude, Double longitude);
+    Warehouse createWarehouse(String name, Double latitude, Double longitude, Integer capacity);
 
     /**
      * Saves warehouse entity

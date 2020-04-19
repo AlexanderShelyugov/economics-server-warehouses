@@ -88,7 +88,9 @@ class WarehouseServiceImplTest {
         when(r.save(any(Warehouse.class))).thenReturn(expectedWarehouse);
 
         final Long actualWarehouseId = service.createWarehouse(
-            expectedWarehouse.getName(), expectedWarehouse.getLatitude(), expectedWarehouse.getLongitude()).getId();
+            expectedWarehouse.getName(), expectedWarehouse.getLatitude(), expectedWarehouse.getLongitude(),
+            expectedWarehouse.getCapacity()
+        ).getId();
 
         final ArgumentCaptor<Warehouse> w = forClass(Warehouse.class);
         verify(r, times(1)).save(w.capture());
@@ -121,9 +123,10 @@ class WarehouseServiceImplTest {
         final Collection<Runnable> cases = unmodifiableCollection(asList(
             () -> service.getById(null),
             () -> service.getByUuid(null),
-            () -> service.createWarehouse(w.getName(), w.getLatitude(), null),
-            () -> service.createWarehouse(w.getName(), null, w.getLongitude()),
-            () -> service.createWarehouse(null, w.getLatitude(), w.getLongitude()),
+            () -> service.createWarehouse(w.getName(), w.getLatitude(), w.getLongitude(), null),
+            () -> service.createWarehouse(w.getName(), w.getLatitude(), null, w.getCapacity()),
+            () -> service.createWarehouse(w.getName(), null, w.getLongitude(), w.getCapacity()),
+            () -> service.createWarehouse(null, w.getLatitude(), w.getLongitude(), w.getCapacity()),
             () -> service.saveWarehouse(null),
             () -> service.removeWarehouse(null)
         ));

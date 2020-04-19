@@ -139,7 +139,9 @@ class WarehouseControllerTest {
         when(service.createWarehouse(
             eq(expectedWarehouse.getName()),
             eq(expectedWarehouse.getLatitude()),
-            eq(expectedWarehouse.getLongitude())))
+            eq(expectedWarehouse.getLongitude()),
+            eq(expectedWarehouse.getCapacity())
+        ))
             .thenReturn(expectedWarehouse);
 
         WarehouseDTO w = converter.convert(expectedWarehouse);
@@ -160,7 +162,9 @@ class WarehouseControllerTest {
         verify(service, times(1)).createWarehouse(
             eq(expectedWarehouse.getName()),
             eq(expectedWarehouse.getLatitude()),
-            eq(expectedWarehouse.getLongitude()));
+            eq(expectedWarehouse.getLongitude()),
+            eq(expectedWarehouse.getCapacity())
+        );
     }
 
     @Test
@@ -190,7 +194,7 @@ class WarehouseControllerTest {
         final WarehouseDTO warehouseArg = converter.convert(w);
 
         when(service.getByUuid(eq(w.getUuid()))).thenReturn(null);
-        when(service.createWarehouse(eq(w.getName()), eq(w.getLatitude()), eq(w.getLongitude())))
+        when(service.createWarehouse(eq(w.getName()), eq(w.getLatitude()), eq(w.getLongitude()), eq(w.getCapacity())))
             .thenReturn(w);
 
         mockMvc.perform(
@@ -207,7 +211,8 @@ class WarehouseControllerTest {
         verify(service, times(1)).createWarehouse(
             eq(w.getName()),
             eq(w.getLatitude()),
-            eq(w.getLongitude())
+            eq(w.getLongitude()),
+            eq(w.getCapacity())
         );
     }
 
