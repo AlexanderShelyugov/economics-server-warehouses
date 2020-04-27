@@ -1,0 +1,12 @@
+.gradle
+.idea
+.build
+gradle
+.gitignore
+build.sh
+run.sh
+Dockerfile
+Dockerfile.production
+gradlew
+gradle.bat
+run.sh

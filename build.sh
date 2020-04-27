@@ -1,0 +1,1 @@
+docker build . -f Dockerfile.production --tag=economics:server-warehouses
