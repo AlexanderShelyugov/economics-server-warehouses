@@ -1,6 +1,10 @@
+FROM gradle:jdk11 AS build
+COPY --chown=gradle:gradle . /home/gradle/src/
+WORKDIR /home/gradle/src
+RUN gradle build --no-daemon
+
 FROM adoptopenjdk/openjdk11:alpine-jre
-ARG JAR_FILE=build/libs/economics-server-warehouse-1.0-SNAPSHOT.jar
-WORKDIR /opt/app
-COPY ${JAR_FILE} app.jar
+WORKDIR /app
+COPY --from=build /home/gradle/src/build/libs/*.jar ./economics-server-warehouse.jar
 EXPOSE 8001
-ENTRYPOINT ["java","-jar","app.jar"]
+ENTRYPOINT ["java","-jar","economics-server-warehouse.jar"]
