@@ -16,7 +16,8 @@ server:
   port: ${PORT:8001}
 eureka:
   client:
-    defaultZone: ${EUREKA_URI:http://localhost:8761}/eureka
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8761}/eureka
   healthcheck:
     enabled: true
   instance:
