@@ -1,0 +1,37 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1.0
+      author: Alexander Shelyugov
+      changes:
+        - createTable:
+            tableName: WAREHOUSES
+            columns:
+              - column:
+                  name: ID
+                  type: ${ID_TYPE}
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: UUID
+                  type: ${UUID_TYPE}
+                  defaultValueComputed: ${UUID_DEFAULT}
+                  constraints:
+                    unique: true
+                    nullable: false
+              - column:
+                  name: NAME
+                  type: VARCHAR(256)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: LATITUDE
+                  type: DECIMAL(5, 2)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: LONGITUDE
+                  type: DECIMAL(5, 2)
+                  constraints:
+                    nullable: false

@@ -25,6 +25,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:2.2.2.RELEASE'
     implementation 'org.modelmapper:modelmapper:2.3.6'
+    implementation 'org.postgresql:postgresql:42.2.12'
     implementation 'com.h2database:h2'
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'

@@ -4,12 +4,12 @@ logging:
 
 spring:
   datasource:
-    url: jdbc:h2:mem:warehousedb
-    driverClassName: org.h2.Driver
-    username: sa
-    password: sa
+    url: jdbc:postgresql://${DB_URL:localhost:5432}/${DB_DATABASE:economics}
+    driverClassName: org.postgresql.Driver
+    username: ${DB_USERNAME:username}
+    password: ${DB_PASSWORD:password}
   jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
       ddl-auto: none
 server:

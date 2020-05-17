@@ -1,10 +1,34 @@
 databaseChangeLog:
+  - property:
+      dbms: postgresql
+      name: ID_TYPE
+      value: SERIAL
+  - property:
+      dbms: h2
+      name: ID_TYPE
+      value: INTEGER
+  - property:
+      dbms: postgresql
+      name: UUID_TYPE
+      value: UUID
+  - property:
+      dbms: h2
+      name: UUID_TYPE
+      value: BINARY(16)
+  - property:
+      dbms: postgresql
+      name: UUID_DEFAULT
+      value: UUID_GENERATE_V4()
+  - property:
+      dbms: h2
+      name: UUID_DEFAULT
+      value: UUID()
   - include:
-      file: sql/changelog-1.0.sql
+      file: sql/changelog-1.0.yml
       relativeToChangelogFile: true
   - include:
-      file: sql/changelog-1.1.sql
+      file: sql/changelog-1.1.yml
       relativeToChangelogFile: true
   - include:
-      file: sql/changelog-1.2.sql
+      file: sql/changelog-1.2.yml
       relativeToChangelogFile: true

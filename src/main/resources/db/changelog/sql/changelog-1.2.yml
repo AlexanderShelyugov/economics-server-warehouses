@@ -1,0 +1,15 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1.2
+      author: Alexander Shelyugov
+      changes:
+        - addColumn:
+            tableName: WAREHOUSES
+            columns:
+              - column:
+                  name: CAPACITY
+                  type: DECIMAL(5, 0)
+                  defaultValue: 0
+                  constraints:
+                    nullable: false
+                    checkConstraint: CAPACITY >= 0

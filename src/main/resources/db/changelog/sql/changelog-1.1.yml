@@ -1,0 +1,65 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1.1
+      author: Alexander Shelyugov
+      changes:
+        - insert:
+            tableName: WAREHOUSES
+            columns:
+              - column:
+                  name: NAME
+                  value: 'Warehouse 1'
+              - column:
+                  name: LATITUDE
+                  value: 100
+              - column:
+                  name: LONGITUDE
+                  value: 200
+        - insert:
+            tableName: WAREHOUSES
+            columns:
+              - column:
+                  name: NAME
+                  value: 'Warehouse 2'
+              - column:
+                  name: LATITUDE
+                  value: 110
+              - column:
+                  name: LONGITUDE
+                  value: 90
+        - insert:
+            tableName: WAREHOUSES
+            columns:
+              - column:
+                  name: NAME
+                  value: 'Warehouse 3'
+              - column:
+                  name: LATITUDE
+                  value: 120
+              - column:
+                  name: LONGITUDE
+                  value: 100
+        - insert:
+            tableName: WAREHOUSES
+            columns:
+              - column:
+                  name: NAME
+                  value: 'Warehouse 4'
+              - column:
+                  name: LATITUDE
+                  value: 50
+              - column:
+                  name: LONGITUDE
+                  value: 40
+        - insert:
+            tableName: WAREHOUSES
+            columns:
+              - column:
+                  name: NAME
+                  value: 'Warehouse 5'
+              - column:
+                  name: LATITUDE
+                  value: 90
+              - column:
+                  name: LONGITUDE
+                  value: 130
