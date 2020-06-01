@@ -1,8 +1,10 @@
-# The Economics' warehouses server
+# The Economics warehouses server
 
 This is a repository of economics server, that maintains everything related to warehouses. Requires a connection to [PostgreSQL](https://www.postgresql.org) server.
 
 It uses [Spring Boot](https://spring.io/projects/spring-boot), [Liquibase](https://www.liquibase.org), [ModelMapper](https://modelmapper.org). It's tested with [JUnit 5](https://junit.org/junit5), code is completely covered with tests.
+
+It also connects to [Eureka server](https://github.com/Netflix/eureka/wiki/Eureka-at-a-glance) located at [this repository](https://github.com/AlexanderShelyugov/economics-server-eureka).
 ## Table of contents
 1. [Pre-build](#Pre-build)
 2. [Build](#Build)
